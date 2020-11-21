@@ -25,7 +25,7 @@ import (
 type PerfParams struct {
 	KubeCfgPath  string
 	ClientConfig clientcmd.ClientConfig
-	ClientSet    *kubernetes.Clientset
+	ClientSet    kubernetes.Interface
 }
 
 func (params *PerfParams) Initialize() error {

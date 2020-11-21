@@ -55,7 +55,7 @@ func NewServiceGenerateCommand(p *pkg.PerfParams) *cobra.Command {
 
 For example:
 # To generate ksvc workload
-kperf service generate —n 500 —interval 20 —batch 20 --min-scale 0 --max-scale 5 (--nsprefix testns/ --ns nsname)
+kperf service generate —n 500 —interval 20 —batch 20 --min-scale 0 --max-scale 5 (--nsPrefix testns/ --ns nsname)
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var nsRangeMap map[string]bool = map[string]bool{}

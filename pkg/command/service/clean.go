@@ -41,7 +41,7 @@ func NewServiceCleanCommand(p *pkg.PerfParams) *cobra.Command {
 
 For example:
 # To clean ksvc workload
-kperf service clean --nsprefix testns/ --ns nsname
+kperf service clean --nsPrefix testns/ --ns nsname
 `,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var nsRangeMap map[string]bool = map[string]bool{}
@@ -64,7 +64,7 @@ kperf service clean --nsprefix testns/ --ns nsname
 						nsRangeMap[fmt.Sprintf("%s%d", nsPrefix, i)] = true
 					}
 				} else {
-					return fmt.Errorf("failed to parse namespace range %s\n", err)
+					return fmt.Errorf("failed to parse namespace range %s\n", nsRange)
 				}
 			}
 
