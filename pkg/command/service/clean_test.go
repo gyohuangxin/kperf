@@ -28,7 +28,7 @@ import (
 
 func TestNewServiceCleanCommand(t *testing.T) {
 	t.Run("incompleted or wrong args for service clean", func(t *testing.T) {
-		client := k8sfake.NewSimpleClientset()
+		client := k8sfake.NewSimpleClientset(&v1.ConfigMap{})
 		p := &pkg.PerfParams{
 			ClientSet: client,
 		}
