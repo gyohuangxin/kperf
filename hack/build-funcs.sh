@@ -40,7 +40,9 @@ function go_pre_build() {
   export PATH=$PATH:$GOPATH/bin
   go mod vendor
   go get -u github.com/jteeuwen/go-bindata/...
-  go-bindata -nometadata -pkg utils -o $BASE_DIR/pkg/command/utils/htmltemplatebindata.go $BASE_DIR/templates/...
+  pushd $BASE_DIR > /dev/null
+  go-bindata -nometadata -pkg utils -o ./pkg/command/utils/htmltemplatebindata.go ./templates/...
+  popd > /dev/null
 }
 
 function go_build() {
