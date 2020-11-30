@@ -58,7 +58,7 @@ jobs:
         run: echo 'COVER_OPTS=-coverprofile=coverage.txt -covermode=atomic' >> $GITHUB_ENV
 
       - name: Test
-        run: go test -race $COVER_OPTS ./pkg/...
+        run: go test -race $COVER_OPTS knative.dev/kperf/...
 
       - if: steps.codecov-enabled.outputs.files_exists == 'true'
         name: Codecov

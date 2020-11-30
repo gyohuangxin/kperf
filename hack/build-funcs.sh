@@ -62,10 +62,13 @@ function go_test() {
 
   echo "🧪 ${X}Test"
   go_pre_build
-  if ! go test -v ./pkg/...; then
-    echo "🔥 ${red}Failure${reset}"
-    exit 1
-  fi
+  for path in $(go list ./... | grep -v /vendor/)
+  do
+    if ! go test -v $path; then
+      echo "🔥 ${red}Failure${reset}"
+      exit 1
+    fi
+  done
 }
 
 function check_license() {
